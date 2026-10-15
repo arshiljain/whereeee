@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Liquid Glass Theme for Spotify (Inspired by spoti.pw / iOS Liquid Glass)
+   ========================================================================== */
+
+:root {
+  --glass-bg: rgba(22, 22, 34, 0.65);
+  --glass-bg-card: rgba(255, 255, 255, 0.04);
+  --glass-bg-card-hover: rgba(255, 255, 255, 0.08);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --glass-border-hover: 1px solid rgba(255, 255, 255, 0.16);
+  --glass-blur: blur(28px) saturate(180%);
+  --glass-radius: 16px;
+  --accent-purple: #8B5CF6;
+  --accent-glow: rgba(139, 92, 246, 0.35);
+}
+
+/* App Background with ambient gradient */
+.Root__top-container,
+.main-view-container {
+  background: radial-gradient(circle at 50% 0%, rgba(55, 30, 95, 0.28) 0%, rgba(14, 14, 20, 0.98) 75%) !important;
+  backdrop-filter: var(--glass-blur);
+}
+
+/* Dynamic Ambient Glow Backdrop injected by theme.js */
+#liquid-ambient-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: background 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  opacity: 0.45;
+  filter: blur(80px);
+}
+
+/* Left Sidebar - Frosted Glass Container */
+.Root__nav-bar,
+[data-testid="left-sidebar"],
+.main-yourLibraryX-entryPoints {
+  background-color: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: var(--glass-border) !important;
+  border-radius: var(--glass-radius) !important;
+  margin: 10px 0 10px 10px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Main Content Viewport */
+.main-view-container__scroll-node-child {
+  padding-bottom: 110px !important;
+}
+
+.main-view-container__scroll-node {
+  background-color: rgba(16, 16, 24, 0.5) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  border: var(--glass-border) !important;
+  border-radius: var(--glass-radius) !important;
+  margin: 10px 10px 10px 10px !important;
+  overflow: hidden !important;
+}
+
+/* Top Navigation Bar */
+.main-topBar-container,
+header[data-testid="top-bar"] {
+  background-color: rgba(18, 18, 28, 0.45) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Floating Bottom Player Bar (Liquid Glass Dock) */
+.Root__now-playing-bar,
+footer[data-testid="now-playing-bar"] {
+  background: transparent !important;
+  padding: 0 12px 12px 12px !important;
+  margin-top: -6px !important;
+}
+
+.main-nowPlayingBar-container {
+  background: rgba(24, 22, 36, 0.75) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: var(--glass-border) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), 0 0 20px rgba(139, 92, 246, 0.15) !important;
+  padding: 8px 18px !important;
+  transition: all 0.3s ease !important;
+}
+
+.main-nowPlayingBar-container:hover {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.6), 0 0 24px rgba(139, 92, 246, 0.22) !important;
+}
+
+/* Play/Pause Button - Radiant Liquid Glass Pill */
+.main-playPauseButton-button {
+  background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 4px 16px var(--accent-glow) !important;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease !important;
+}
+
+.main-playPauseButton-button:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 0 6px 22px rgba(139, 92, 246, 0.55) !important;
+}
+
+/* Progress and Volume Sliders */
+.x-progressBar-fillColor {
+  background: linear-gradient(90deg, #8B5CF6 0%, #C084FC 100%) !important;
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.6) !important;
+  border-radius: 10px !important;
+}
+
+.x-progressBar-progressBarBg {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 10px !important;
+}
+
+/* Glass Cards & Grids */
+.main-card-card {
+  background: var(--glass-bg-card) !important;
+  backdrop-filter: blur(14px) !important;
+  border: var(--glass-border) !important;
+  border-radius: 14px !important;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.main-card-card:hover {
+  background: var(--glass-bg-card-hover) !important;
+  border: var(--glass-border-hover) !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 16px rgba(139, 92, 246, 0.15) !important;
+}
+
+/* Card Images rounded glass style */
+.main-card-imageContainer img,
+.main-entityHeader-image {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Search input rounded pill glass */
+.x-searchInput-searchInputInput {
+  background: rgba(255, 255, 255, 0.07) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 500px !important;
+  color: #FFFFFF !important;
+  padding: 8px 36px !important;
+  transition: all 0.2s ease !important;
+}
+
+.x-searchInput-searchInputInput:focus {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: var(--accent-purple) !important;
+  box-shadow: 0 0 16px var(--accent-glow) !important;
+}
+
+/* Track list row hover */
+.main-trackList-trackListRow {
+  border-radius: 10px !important;
+  transition: background 0.2s ease !important;
+}
+
+.main-trackList-trackListRow:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.main-trackList-trackListRow.main-trackList-selected {
+  background-color: rgba(139, 92, 246, 0.2) !important;
+}
+
+/* Sleek minimalist scrollbar */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Custom In-App Brand Badge */
+.spotify1-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.35) 0%, rgba(99, 102, 241, 0.25) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.2);
+  user-select: none;
+}
