@@ -1,191 +1,182 @@
 /* ==========================================================================
-   Master Liquid Glass Theme for Spotify Desktop (Spotify1 Edition)
-   Inspired by spoti.pw, Apple Music Live Liquid UI, and macOS Sequoia Glass
+   Master Liquid Glass Theme (Spotify1 Edition)
+   Complete Override for Spotify Modern Encore UI & Classic WebPlayer
    ========================================================================== */
 
-:root {
-  --glass-bg-primary: rgba(14, 14, 22, 0.68);
-  --glass-bg-secondary: rgba(20, 20, 32, 0.6);
-  --glass-bg-dock: rgba(22, 20, 36, 0.82);
-  --glass-bg-card: rgba(255, 255, 255, 0.04);
-  --glass-bg-card-hover: rgba(255, 255, 255, 0.09);
+/* 1. Core Global Variable Overrides - Target ALL Specificity Levels */
+:root,
+html,
+body,
+.encore-dark-theme,
+.encore-light-theme,
+.encore-layout-themes,
+[data-theme="dark"] {
+  /* Spotify Encore Brand Accents - Replaces Green (#1ed760) Everywhere */
+  --essential-bright-accent: #8B5CF6 !important;
+  --text-bright-accent: #A855F7 !important;
+  --essential-positive: #8B5CF6 !important;
+  --text-positive: #8B5CF6 !important;
+  --essential-base: #FFFFFF !important;
+  --essential-subdued: #8E8D9F !important;
   
-  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-  --glass-border-hover: 1px solid rgba(255, 255, 255, 0.18);
-  --glass-border-dock: 1px solid rgba(255, 255, 255, 0.12);
+  /* Spotify Encore Background Surfaces */
+  --background-base: #09090E !important;
+  --background-highlight: #141322 !important;
+  --background-press: #1F1C33 !important;
+  --background-elevated-base: #171626 !important;
+  --background-elevated-highlight: #232238 !important;
+  --background-elevated-press: #2E2A48 !important;
   
-  --glass-blur: blur(36px) saturate(190%);
-  --glass-blur-subtle: blur(20px) saturate(160%);
-  --glass-radius: 18px;
-  --glass-radius-lg: 24px;
+  /* Text and Labels */
+  --text-base: #FFFFFF !important;
+  --text-subdued: #B3B2C5 !important;
+  --text-announcement: #C084FC !important;
   
-  --accent-primary: #8B5CF6;
-  --accent-secondary: #EC4899;
-  --accent-gradient: linear-gradient(135deg, #8B5CF6 0%, #D946EF 50%, #EC4899 100%);
-  --accent-glow: 0 0 24px rgba(139, 92, 246, 0.45);
+  /* Spicetify Core Variables */
+  --spice-button: #8B5CF6 !important;
+  --spice-button-active: #A855F7 !important;
+  --spice-button-disabled: #433F5E !important;
+  --spice-text: #FFFFFF !important;
+  --spice-subtext: #B8B8CA !important;
+  --spice-main: #09090E !important;
+  --spice-main-elevated: #171626 !important;
+  --spice-sidebar: #0F0F17 !important;
+  --spice-player: #141320 !important;
+  --spice-card: #171626 !important;
+  --spice-shadow: #000000 !important;
+  --spice-selected-row: #2A2744 !important;
+  --spice-notification: #7C3AED !important;
+  --spice-notification-error: #EF4444 !important;
+  --spice-misc: #8B5CF6 !important;
+  
+  /* Custom Liquid Glass Tokens */
+  --glass-bg: rgba(18, 16, 28, 0.72) !important;
+  --glass-dock: rgba(22, 20, 36, 0.85) !important;
+  --glass-card: rgba(255, 255, 255, 0.05) !important;
+  --glass-card-hover: rgba(255, 255, 255, 0.1) !important;
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  --glass-blur: blur(32px) saturate(180%) !important;
+  --accent-gradient: linear-gradient(135deg, #8B5CF6 0%, #D946EF 50%, #EC4899 100%) !important;
 }
 
-/* ==========================================================================
-   Background & Ambient Dynamic Mesh
-   ========================================================================== */
-
+/* 2. Global Viewport & Ambient Canvas Background */
+html,
 body,
+#main,
+.Root,
 .Root__top-container,
 .main-view-container {
   background-color: #09090E !important;
+  background: radial-gradient(circle at 50% 0%, rgba(88, 28, 135, 0.35) 0%, rgba(9, 9, 14, 0.98) 75%) !important;
   color: #FFFFFF !important;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif !important;
 }
 
-#liquid-ambient-backdrop {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  transition: background 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.4s ease;
-  opacity: 0.55;
-  filter: blur(85px);
-  will-change: background, opacity;
-}
-
-/* ==========================================================================
-   Sidebar Navigation - Frosted Glass Slab
-   ========================================================================== */
-
+/* 3. Left Navigation & Library Sidebar */
 .Root__nav-bar,
 [data-testid="left-sidebar"],
-.main-yourLibraryX-entryPoints {
-  background-color: var(--glass-bg-secondary) !important;
+.main-yourLibraryX-entryPoints,
+.main-yourLibraryX-libraryRoot {
+  background-color: var(--glass-bg) !important;
   backdrop-filter: var(--glass-blur) !important;
   -webkit-backdrop-filter: var(--glass-blur) !important;
   border: var(--glass-border) !important;
-  border-radius: var(--glass-radius) !important;
-  margin: 12px 0 12px 12px !important;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45) !important;
-  overflow: hidden !important;
+  border-radius: 18px !important;
+  margin: 10px 0 10px 10px !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Sidebar navigation item pills */
-.main-yourLibraryX-navItem,
-.main-navBar-navBarItem {
-  border-radius: 12px !important;
-  margin: 2px 8px !important;
-  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
-}
-
-.main-yourLibraryX-navItem:hover,
-.main-navBar-navBarItem:hover {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-}
-
-/* ==========================================================================
-   Main Content Canvas
-   ========================================================================== */
-
+/* 4. Main Scroll Viewport */
 .main-view-container__scroll-node {
-  background-color: var(--glass-bg-primary) !important;
+  background-color: rgba(14, 13, 22, 0.65) !important;
   backdrop-filter: var(--glass-blur) !important;
   -webkit-backdrop-filter: var(--glass-blur) !important;
   border: var(--glass-border) !important;
-  border-radius: var(--glass-radius) !important;
-  margin: 12px 12px 12px 12px !important;
-  overflow: hidden !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 18px !important;
+  margin: 10px 10px 10px 10px !important;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55) !important;
 }
 
 .main-view-container__scroll-node-child {
-  padding-bottom: 125px !important;
+  padding-bottom: 120px !important;
 }
 
-/* Right Sidebar (Friend Activity / Panel) */
-.Root__right-sidebar,
-aside[aria-label="Friend Activity"],
-aside[data-testid="now-playing-widget"] {
-  background-color: var(--glass-bg-secondary) !important;
-  backdrop-filter: var(--glass-blur) !important;
-  border: var(--glass-border) !important;
-  border-radius: var(--glass-radius) !important;
-  margin: 12px 12px 12px 0 !important;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45) !important;
-}
-
-/* ==========================================================================
-   Top Navigation Header
-   ========================================================================== */
-
+/* 5. Top Bar Header */
 .main-topBar-container,
-header[data-testid="top-bar"] {
-  background: rgba(14, 14, 24, 0.55) !important;
-  backdrop-filter: var(--glass-blur-subtle) !important;
-  -webkit-backdrop-filter: var(--glass-blur-subtle) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-  height: 64px !important;
+header[data-testid="top-bar"],
+.main-topBar-background {
+  background-color: rgba(14, 13, 22, 0.6) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Search input rounded pill */
+/* Search Input Pill */
 .x-searchInput-searchInputInput {
-  background: rgba(255, 255, 255, 0.06) !important;
-  backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(18px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
   border-radius: 999px !important;
   color: #FFFFFF !important;
   padding: 8px 38px !important;
-  font-size: 13px !important;
   transition: all 0.25s ease !important;
 }
 
 .x-searchInput-searchInputInput:focus {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border-color: var(--accent-primary) !important;
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4) !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: #8B5CF6 !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5) !important;
 }
 
-/* ==========================================================================
-   Floating Bottom Player Bar (Liquid Dynamic Dock)
-   ========================================================================== */
-
+/* 6. Floating Dock Player Bar (Bottom) */
 .Root__now-playing-bar,
 footer[data-testid="now-playing-bar"] {
   background: transparent !important;
-  padding: 0 16px 16px 16px !important;
-  margin-top: -12px !important;
+  padding: 0 14px 14px 14px !important;
+  margin-top: -10px !important;
 }
 
 .main-nowPlayingBar-container {
-  background: var(--glass-bg-dock) !important;
+  background: var(--glass-dock) !important;
   backdrop-filter: var(--glass-blur) !important;
   -webkit-backdrop-filter: var(--glass-blur) !important;
-  border: var(--glass-border-dock) !important;
-  border-radius: var(--glass-radius-lg) !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 28px rgba(139, 92, 246, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(139, 92, 246, 0.25) !important;
   padding: 10px 22px !important;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+  transition: all 0.3s ease !important;
 }
 
 .main-nowPlayingBar-container:hover {
-  border-color: rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.72), 0 0 32px rgba(139, 92, 246, 0.28) !important;
+  border-color: rgba(255, 255, 255, 0.24) !important;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.75), 0 0 36px rgba(139, 92, 246, 0.35) !important;
 }
 
-/* Play/Pause Button - Radiant Neon Liquid Pill */
-.main-playPauseButton-button {
+/* 7. Primary Action Buttons & Play Controls (Replaces Green Button) */
+button[data-testid="play-button"],
+.main-playPauseButton-button,
+[data-encore-id="buttonPrimary"],
+.encore-bright-accent-set {
   background: var(--accent-gradient) !important;
+  background-color: #8B5CF6 !important;
   color: #FFFFFF !important;
   border: 1px solid rgba(255, 255, 255, 0.35) !important;
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45) !important;
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5) !important;
   transform: scale(1) !important;
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease !important;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease !important;
 }
 
-.main-playPauseButton-button:hover {
-  transform: scale(1.1) !important;
-  box-shadow: 0 8px 26px rgba(217, 70, 239, 0.6) !important;
+button[data-testid="play-button"]:hover,
+.main-playPauseButton-button:hover,
+[data-encore-id="buttonPrimary"]:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 0 8px 28px rgba(217, 70, 239, 0.65) !important;
 }
 
-/* Progress & Volume Slider */
-.x-progressBar-fillColor {
-  background: linear-gradient(90deg, #8B5CF6 0%, #C084FC 50%, #EC4899 100%) !important;
-  box-shadow: 0 0 14px rgba(236, 72, 153, 0.5) !important;
+/* 8. Progress and Volume Bars */
+.x-progressBar-fillColor,
+[data-testid="progress-bar"] > div > div {
+  background: linear-gradient(90deg, #8B5CF6 0%, #D946EF 60%, #EC4899 100%) !important;
+  box-shadow: 0 0 14px rgba(217, 70, 239, 0.55) !important;
   border-radius: 999px !important;
 }
 
@@ -194,32 +185,29 @@ footer[data-testid="now-playing-bar"] {
   border-radius: 999px !important;
 }
 
-/* ==========================================================================
-   Cards & Entity Elements
-   ========================================================================== */
-
+/* 9. Cards and Grid Items */
 .main-card-card {
-  background: var(--glass-bg-card) !important;
-  backdrop-filter: blur(16px) !important;
-  border: var(--glass-border) !important;
+  background: var(--glass-card) !important;
+  backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 16px !important;
-  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease !important;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.25s ease, box-shadow 0.25s ease !important;
 }
 
 .main-card-card:hover {
-  background: var(--glass-bg-card-hover) !important;
-  border: var(--glass-border-hover) !important;
-  transform: translateY(-6px) scale(1.015) !important;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.2) !important;
+  background: var(--glass-card-hover) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-6px) scale(1.02) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.25) !important;
 }
 
 .main-card-imageContainer img,
 .main-entityHeader-image {
-  border-radius: 14px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
 }
 
-/* Track list rows */
+/* 10. Track Row Styling */
 .main-trackList-trackListRow {
   border-radius: 12px !important;
   transition: all 0.2s ease !important;
@@ -230,90 +218,41 @@ footer[data-testid="now-playing-bar"] {
 }
 
 .main-trackList-trackListRow.main-trackList-selected {
-  background: linear-gradient(90deg, rgba(139, 92, 246, 0.22) 0%, rgba(236, 72, 153, 0.12) 100%) !important;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.25) 0%, rgba(217, 70, 239, 0.15) 100%) !important;
 }
 
-/* ==========================================================================
-   Minimalist Glass Scrollbar
-   ========================================================================== */
-
+/* 11. Minimal Glass Scrollbars */
 ::-webkit-scrollbar {
   width: 6px !important;
   height: 6px !important;
 }
-
 ::-webkit-scrollbar-track {
   background: transparent !important;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.14) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
   border-radius: 999px !important;
-  backdrop-filter: blur(8px) !important;
-  transition: background 0.2s !important;
+  backdrop-filter: blur(6px) !important;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.35) !important;
 }
 
-/* ==========================================================================
-   Spotify1 Signature Brand Badge & Extension UI Controls
-   ========================================================================== */
-
+/* 12. Signature Spotify1 Brand Indicator */
 .spotify1-brand-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 5px 14px;
+  padding: 6px 14px;
   border-radius: 999px;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.38) 0%, rgba(236, 72, 153, 0.25) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.4) 0%, rgba(217, 70, 239, 0.3) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   color: #FFFFFF;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.6px;
-  box-shadow: 0 4px 18px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 18px rgba(139, 92, 246, 0.35);
   user-select: none;
-  transition: all 0.25s ease;
-}
-
-.spotify1-brand-badge:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(217, 70, 239, 0.45);
-  border-color: rgba(255, 255, 255, 0.35);
-}
-
-/* Extension top bar pill buttons */
-#liquid-sleep-timer-btn,
-#liquid-stats-btn,
-#liquid-lyrics-btn {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
-  border-radius: 999px !important;
-  padding: 6px 14px !important;
-  color: #FFFFFF !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  cursor: pointer !important;
-  backdrop-filter: blur(16px) !important;
-  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) !important;
-}
-
-#liquid-sleep-timer-btn:hover,
-#liquid-stats-btn:hover,
-#liquid-lyrics-btn:hover {
-  background: rgba(255, 255, 255, 0.16) !important;
-  border-color: var(--accent-primary) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.35) !important;
-}
-
-#liquid-sleep-timer-btn.active {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.5) 0%, rgba(99, 102, 241, 0.5) 100%) !important;
-  border-color: rgba(255, 255, 255, 0.35) !important;
-  box-shadow: 0 0 16px rgba(139, 92, 246, 0.5) !important;
 }
