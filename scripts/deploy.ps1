@@ -28,10 +28,10 @@ spicetify config inject_css 1
 spicetify config inject_theme_js 1
 spicetify config replace_colors 1
 
-# Activate extensions
-spicetify config extensions spotify1-brand.js liquid-shortcuts.js sleep-timer.js listening-stats.js lyrics-overlay.js
+# Activate extensions separated by pipe
+spicetify config extensions "spotify1-brand.js|liquid-shortcuts.js|sleep-timer.js|listening-stats.js|lyrics-overlay.js"
 
 Write-Host "==> Applying configuration to Spotify..." -ForegroundColor Green
 spicetify apply
 
-Write-Host "`n[✓] Liquid Glass & Spotify1 customizations successfully applied!" -ForegroundColor Green
+Write-Host "`n[OK] Liquid Glass and Spotify1 customizations successfully applied!" -ForegroundColor Green

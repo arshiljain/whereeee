@@ -6,4 +6,4 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + 
 
 spicetify restore
 
-Write-Host "`n[✓] Spotify restored successfully. All Spicetify modifications removed." -ForegroundColor Green
+Write-Host "`n[OK] Spotify restored successfully. All Spicetify modifications removed." -ForegroundColor Green

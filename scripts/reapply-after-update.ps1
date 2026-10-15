@@ -12,4 +12,4 @@ if ($LASTEXITCODE -ne 0) {
     spicetify backup apply
 }
 
-Write-Host "`n[✓] Spotify re-patched and customizations re-applied successfully!" -ForegroundColor Green
+Write-Host "`n[OK] Spotify re-patched and customizations re-applied successfully!" -ForegroundColor Green
